@@ -1,0 +1,1 @@
+# jobinternship-scam-dector
