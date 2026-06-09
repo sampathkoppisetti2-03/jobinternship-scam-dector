@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Red Flags — ShieldWatch</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="toast-container"></div>
+<button class="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="scams.html">Scam Types</a></li>
+    <li><a href="redflags.html">Red Flags</a></li>
+    <li><a href="examples.html">Examples</a></li>
+    <li><a href="survey.html">Survey</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle"><i class="fa-solid fa-sun"></i></button>
+    <a href="redflags.html" class="btn-nav-cta">Check Red Flags</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 Home</a><a href="scams.html">⚠️ Scam Types</a><a href="redflags.html">🚩 Red Flags</a><a href="examples.html">🔍 Examples</a><a href="survey.html">📊 Survey</a>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label" style="background:rgba(239,68,68,0.1);border-color:rgba(239,68,68,0.3);color:#ff8080"><i class="fa-solid fa-triangle-exclamation"></i> THREAT INTELLIGENCE</span>
+    <h1 class="section-title">Scam <span class="text-danger-grad">Red Flags</span></h1>
+    <p class="section-subtitle" style="margin:16px auto 0">A security dashboard of warning signs. If you see even ONE of these in a job offer, treat it as suspicious.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+
+    <!-- Threat Dashboard -->
+    <div class="flag-dashboard reveal">
+      <div class="dash-header">
+        <span class="dash-title"><i class="fa-solid fa-gauge-high" style="color:var(--accent-cyan)"></i> &nbsp;Threat Level Dashboard</span>
+        <span class="live-badge"><span class="live-dot"></span> Live Monitor</span>
+      </div>
+      <div class="threat-meter">
+        <div class="meter-item">
+          <span class="meter-value" style="color:var(--danger)" data-target="18" data-suffix="">0</span>
+          <span class="meter-label">Critical Red Flags</span>
+        </div>
+        <div class="meter-item">
+          <span class="meter-value" style="color:var(--warning)" data-target="9" data-suffix="">0</span>
+          <span class="meter-label">Warning Signals</span>
+        </div>
+        <div class="meter-item">
+          <span class="meter-value" style="color:var(--success)" data-target="6" data-suffix="">0</span>
+          <span class="meter-label">Safety Checks</span>
+        </div>
+      </div>
+      <div style="padding:16px 20px;background:rgba(239,68,68,0.06);border:1px solid rgba(239,68,68,0.2);border-radius:var(--radius);font-size:0.85rem;color:#fca5a5;display:flex;align-items:center;gap:12px">
+        <span style="font-size:1.2rem">🚨</span>
+        <div><strong>Critical Advisory:</strong> Legitimate employers NEVER ask for money, personal ID documents upfront, or conduct interviews exclusively via WhatsApp/Telegram. Any single flag below should trigger immediate caution.</div>
+      </div>
+    </div>
+
+    <!-- Section: Money Demands -->
+    <div class="reveal" style="margin-bottom:30px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:1.4rem">💸</span>
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700">Money & Payment Demands</h2>
+        <span style="margin-left:auto;padding:3px 12px;background:var(--danger-dim);border:1px solid rgba(239,68,68,0.3);border-radius:50px;font-size:0.72rem;font-weight:700;color:var(--danger)">CRITICAL</span>
+      </div>
+    </div>
+
+    <div class="flags-layout reveal">
+      <div class="flag-alert-card flag-critical">
+        <span class="flag-icon">💰</span>
+        <div class="flag-content">
+          <h4>Asking for Money Upfront</h4>
+          <p>Any request for payment before employment starts — registration, training, uniform, ID card, or background check fees. Legitimate employers NEVER charge candidates.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"registration fee"</span>
+            <span class="flag-kw">"training deposit"</span>
+            <span class="flag-kw">"security amount"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-critical">
+        <span class="flag-icon">🏦</span>
+        <div class="flag-content">
+          <h4>Requesting Bank Account Details</h4>
+          <p>Asking for account number, IFSC, or UPI ID before you've signed any employment contract or even received a formal offer letter.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"salary setup"</span>
+            <span class="flag-kw">"advance payment"</span>
+            <span class="flag-kw">"payroll registration"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-danger">
+        <span class="flag-icon">🔑</span>
+        <div class="flag-content">
+          <h4>"Refundable" Security Deposits</h4>
+          <p>Promises of a "100% refundable" deposit to "confirm your seat" or "block your position." Once paid, contact disappears entirely.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"fully refundable"</span>
+            <span class="flag-kw">"block your slot"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-danger">
+        <span class="flag-icon">📦</span>
+        <div class="flag-content">
+          <h4>Purchase a Starter Kit</h4>
+          <p>WFH job offers that require buying a "starter pack", "equipment kit", or "data CD" to begin work. These kits are worthless and the job doesn't exist.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"work kit"</span>
+            <span class="flag-kw">"packing material"</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Communication -->
+    <div class="reveal" style="margin:50px 0 20px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:1.4rem">📱</span>
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700">Suspicious Communication</h2>
+        <span style="margin-left:auto;padding:3px 12px;background:var(--danger-dim);border:1px solid rgba(239,68,68,0.3);border-radius:50px;font-size:0.72rem;font-weight:700;color:var(--danger)">CRITICAL</span>
+      </div>
+    </div>
+
+    <div class="flags-layout reveal">
+      <div class="flag-alert-card flag-critical">
+        <span class="flag-icon">📧</span>
+        <div class="flag-content">
+          <h4>Suspicious Email Domains</h4>
+          <p>Emails from Gmail/Yahoo/Hotmail claiming to be from major companies. Real companies always use official corporate domains (e.g. @tcs.com, not @tcs-careers.gmail.com).</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">@gmail.com "HR"</span>
+            <span class="flag-kw">@yahoo.com "Recruiter"</span>
+            <span class="flag-kw">company-hr@gmail</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-danger">
+        <span class="flag-icon">💬</span>
+        <div class="flag-content">
+          <h4>WhatsApp-Only Hiring</h4>
+          <p>The entire recruitment process — interview, selection, offer — happens over WhatsApp or Telegram with no official email, company website visit, or video call.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"interview on WhatsApp"</span>
+            <span class="flag-kw">"join our group"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-danger">
+        <span class="flag-icon">⚡</span>
+        <div class="flag-content">
+          <h4>Urgent Hiring Pressure</h4>
+          <p>"Last 2 seats left!" or "Decision needed in 2 hours!" — artificial urgency is a classic manipulation tactic to prevent you from thinking critically or verifying the offer.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"limited seats"</span>
+            <span class="flag-kw">"immediate joiners"</span>
+            <span class="flag-kw">"today only"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-warning">
+        <span class="flag-icon">🌐</span>
+        <div class="flag-content">
+          <h4>Suspicious/Misspelled Domains</h4>
+          <p>URLs like "infosys-careers.xyz", "tcs-hiring.online", or "amazon-jobs.tk" — typosquatted domains designed to look legitimate at first glance.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw-warning">.xyz domains</span>
+            <span class="flag-kw-warning">.tk / .ml sites</span>
+            <span class="flag-kw-warning">company-name.online</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Offer Red Flags -->
+    <div class="reveal" style="margin:50px 0 20px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+        <span style="font-size:1.4rem">📄</span>
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700">Offer Letter & Job Description</h2>
+        <span style="margin-left:auto;padding:3px 12px;background:var(--warning-dim);border:1px solid rgba(245,158,11,0.3);border-radius:50px;font-size:0.72rem;font-weight:700;color:var(--warning)">WARNING</span>
+      </div>
+    </div>
+
+    <div class="flags-layout reveal">
+      <div class="flag-alert-card flag-warning">
+        <span class="flag-icon">💎</span>
+        <div class="flag-content">
+          <h4>Unrealistically High Salary</h4>
+          <p>Offers of ₹40,000–₹80,000/month for freshers with "no experience required" or generic roles like "data entry operator" or "form filler." Real entry-level salaries are far more modest.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw-warning">"₹50K from Day 1"</span>
+            <span class="flag-kw-warning">"no experience needed"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-warning">
+        <span class="flag-icon">❓</span>
+        <div class="flag-content">
+          <h4>Vague Job Description</h4>
+          <p>Offers with no specific role title, no defined responsibilities, or generic descriptions like "online work", "social media tasks", or "computer work from home."</p>
+          <div class="flag-keywords">
+            <span class="flag-kw-warning">"online work"</span>
+            <span class="flag-kw-warning">"computer work"</span>
+            <span class="flag-kw-warning">"easy tasks"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-danger">
+        <span class="flag-icon">🪪</span>
+        <div class="flag-content">
+          <h4>Asking for Aadhaar / PAN Upfront</h4>
+          <p>Requesting KYC documents like Aadhaar, PAN, or passport before you've even confirmed joining. These are used for identity fraud and opening fraudulent accounts.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw">"submit Aadhaar for verification"</span>
+            <span class="flag-kw">"KYC mandatory"</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="flag-alert-card flag-warning">
+        <span class="flag-icon">📋</span>
+        <div class="flag-content">
+          <h4>Offer Letter with Grammar Errors</h4>
+          <p>Poorly formatted offer letters with spelling mistakes, inconsistent fonts, wrong company addresses, or missing details like CIN/TAN numbers that all registered companies have.</p>
+          <div class="flag-keywords">
+            <span class="flag-kw-warning">No CIN number</span>
+            <span class="flag-kw-warning">Wrong letterhead</span>
+            <span class="flag-kw-warning">Typos in company name</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Safety Checklist -->
+    <div class="reveal" style="margin-top:60px">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px">
+        <span style="font-size:1.4rem">✅</span>
+        <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:700">Your Safety Verification Checklist</h2>
+        <span style="margin-left:auto;padding:3px 12px;background:var(--success-dim);border:1px solid rgba(16,185,129,0.3);border-radius:50px;font-size:0.72rem;font-weight:700;color:var(--success)">DO THIS</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px">
+        <div class="flag-alert-card" style="border:1px solid rgba(16,185,129,0.2)">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--success);border-radius:0 2px 2px 0"></div>
+          <span class="flag-icon">🔍</span>
+          <div class="flag-content">
+            <h4 style="color:var(--success)">Verify Company on MCA Website</h4>
+            <p>Check the company's CIN on mca.gov.in to confirm it's a registered legal entity in India.</p>
+          </div>
+        </div>
+        <div class="flag-alert-card" style="border:1px solid rgba(16,185,129,0.2)">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--success);border-radius:0 2px 2px 0"></div>
+          <span class="flag-icon">📞</span>
+          <div class="flag-content">
+            <h4 style="color:var(--success)">Call the Company Directly</h4>
+            <p>Find the official phone number from the company's real website (not from the email) and call to verify the job posting.</p>
+          </div>
+        </div>
+        <div class="flag-alert-card" style="border:1px solid rgba(16,185,129,0.2)">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--success);border-radius:0 2px 2px 0"></div>
+          <span class="flag-icon">🌐</span>
+          <div class="flag-content">
+            <h4 style="color:var(--success)">Check the Email Domain</h4>
+            <p>The recruiter's email domain should exactly match the company's official website domain. No exceptions.</p>
+          </div>
+        </div>
+        <div class="flag-alert-card" style="border:1px solid rgba(16,185,129,0.2)">
+          <div style="position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--success);border-radius:0 2px 2px 0"></div>
+          <span class="flag-icon">💳</span>
+          <div class="flag-content">
+            <h4 style="color:var(--success)">Never Pay for a Job</h4>
+            <p>Any payment request — regardless of the reason — is an automatic disqualifier. Report it to cybercrime.gov.in.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-banner reveal">
+    <div style="position:relative;z-index:1">
+      <h2>Think You Found a Scam?<br><span class="text-gradient">Report It Now</span></h2>
+      <p>Your report could protect thousands of other job seekers from the same fraud.</p>
+      <div class="cta-actions">
+        <a href="https://cybercrime.gov.in" target="_blank" class="btn btn-danger btn-lg">🚨 Report on cybercrime.gov.in</a>
+        <a href="examples.html" class="btn btn-outline btn-lg">🔍 See Real Examples</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a><p>Empowering job seekers with awareness, tools, and knowledge to stay safe from employment scams.</p></div>
+      <div class="footer-col"><h5>Platform</h5><a href="scams.html">Scam Types</a><a href="redflags.html">Red Flags</a><a href="examples.html">Real Examples</a><a href="survey.html">Survey</a></div>
+      <div class="footer-col"><h5>Resources</h5><a href="redflags.html">Safety Guide</a><a href="examples.html">Fake vs Real</a></div>
+      <div class="footer-col"><h5>Report to</h5><a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a><a href="tel:1930">Cyber Helpline: 1930</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 ShieldWatch. Built for awareness.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

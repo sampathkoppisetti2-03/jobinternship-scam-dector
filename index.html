@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShieldWatch — Fake Job & Internship Scam Awareness</title>
+  <meta name="description" content="Protect yourself from fake job and internship scams. Learn to identify red flags, verify offers, and stay safe in your job search.">
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    /* Page-specific extras */
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      gap: 60px;
+      padding: 60px 0 80px;
+    }
+    @media (max-width: 900px) {
+      .hero-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- BG Effects -->
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="bg-orb bg-orb-3"></div>
+
+<!-- Toast Container -->
+<div class="toast-container"></div>
+
+<!-- Scroll Top -->
+<button class="scroll-top" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <a href="index.html" class="nav-brand">
+    <div class="brand-icon">🛡️</div>
+    <span class="brand-text">Shield<span class="brand-dot">Watch</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="scams.html">Scam Types</a></li>
+    <li><a href="redflags.html">Red Flags</a></li>
+    <li><a href="examples.html">Examples</a></li>
+    <li><a href="survey.html">Survey</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle" aria-label="Toggle theme"><i class="fa-solid fa-sun"></i></button>
+    <a href="redflags.html" class="btn-nav-cta">Check Red Flags</a>
+  </div>
+  <button class="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mobile-nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="scams.html">⚠️ Scam Types</a>
+  <a href="redflags.html">🚩 Red Flags</a>
+  <a href="examples.html">🔍 Examples</a>
+  <a href="survey.html">📊 Survey</a>
+</div>
+
+<!-- ═══════════════  HERO  ═══════════════ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span class="dot"></span>
+          ACTIVE THREAT — 70% Students Targeted
+        </div>
+
+        <h1 class="hero-title">
+          Protect Yourself from<br>
+          <span class="text-danger-grad">Fake Job &</span><br>
+          <span class="text-gradient">Internship Scams</span>
+        </h1>
+
+        <p class="hero-sub">
+          Millions of students and freshers lose money, data, and time to sophisticated job scams every year. ShieldWatch helps you identify threats, verify offers, and make safe career decisions.
+        </p>
+
+        <div class="hero-actions">
+          <a href="scams.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-shield-halved"></i> Explore Scams
+          </a>
+          <a href="redflags.html" class="btn btn-outline btn-lg">
+            <i class="fa-solid fa-flag"></i> Check Red Flags
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number"><span data-target="70" data-suffix="%">0%</span></span>
+            <span class="stat-label">Students targeted</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">₹<span data-target="45" data-suffix="K+">0</span></span>
+            <span class="stat-label">Avg. money lost</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number"><span data-target="12" data-suffix=" types">0</span></span>
+            <span class="stat-label">Scam patterns</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual -->
+      <div class="hero-visual">
+        <div class="shield-ring"></div>
+        <div class="shield-ring-2"></div>
+        <div class="shield-center">🛡️</div>
+
+        <div class="threat-card tc-danger threat-card-1">
+          <div class="tc-icon">🚨</div>
+          <div class="tc-label"><span>FAKE HR</span> Detected</div>
+        </div>
+        <div class="threat-card tc-warning threat-card-2">
+          <div class="tc-icon">💸</div>
+          <div class="tc-label"><span>PAYMENT</span> Scam Alert</div>
+        </div>
+        <div class="threat-card tc-danger threat-card-3">
+          <div class="tc-icon">🎣</div>
+          <div class="tc-label"><span>PHISHING</span> Link Found</div>
+        </div>
+        <div class="threat-card tc-info threat-card-4">
+          <div class="tc-icon">✅</div>
+          <div class="tc-label"><span>SAFE</span> Offer Verified</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════  STATS BANNER  ═══════════════ -->
+<div class="stats-banner">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-card reveal">
+        <span class="stat-icon">🎯</span>
+        <span class="stat-n" data-target="2.3" data-suffix="M+">0</span>
+        <span class="stat-l">Scam Reports Yearly</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-1">
+        <span class="stat-icon">💰</span>
+        <span class="stat-n" data-target="840" data-suffix="Cr+">0</span>
+        <span class="stat-l">Money Lost (India, 2023)</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-2">
+        <span class="stat-icon">📧</span>
+        <span class="stat-n" data-target="68" data-suffix="%">0</span>
+        <span class="stat-l">Via Email/WhatsApp</span>
+      </div>
+      <div class="stat-card reveal reveal-delay-3">
+        <span class="stat-icon">🎓</span>
+        <span class="stat-n" data-target="83" data-suffix="%">0</span>
+        <span class="stat-l">Freshers & Students</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════  FEATURES  ═══════════════ -->
+<section class="section">
+  <div class="container">
+    <div class="reveal" style="text-align:center;margin-bottom:50px">
+      <span class="section-label"><i class="fa-solid fa-bolt"></i> PLATFORM FEATURES</span>
+      <h2 class="section-title">Everything You Need to<br><span class="text-gradient">Stay Protected</span></h2>
+      <p class="section-subtitle" style="margin:0 auto">Comprehensive tools and knowledge to identify, report, and avoid job scams at every step of your career journey.</p>
+    </div>
+
+    <div class="features-grid">
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">⚠️</div>
+        <h3>Scam Type Database</h3>
+        <p>Browse 12+ documented scam patterns including payment fraud, phishing, fake HR impersonation, and identity theft targeting job seekers.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">🚩</div>
+        <h3>Red Flag Detector</h3>
+        <p>Real-time checklist of warning signs in job offers — suspicious domains, upfront payment requests, unrealistic salary promises and more.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">🔍</div>
+        <h3>URL Safety Checker</h3>
+        <p>Paste any job application link and our AI-powered analyzer scans it for known scam patterns, suspicious domains, and phishing indicators.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-1">
+        <div class="feature-icon">📊</div>
+        <h3>Real-World Examples</h3>
+        <p>Side-by-side comparisons of fake vs genuine job offers. Learn to spot the subtle differences that scammers exploit.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-2">
+        <div class="feature-icon">🛡️</div>
+        <h3>Safety Guide</h3>
+        <p>Step-by-step guide to safely applying for jobs — verifying companies, protecting personal data, and reporting fraudulent postings.</p>
+      </div>
+      <div class="feature-card reveal reveal-delay-3">
+        <div class="feature-icon">📣</div>
+        <h3>Community Reports</h3>
+        <p>Contribute your scam experience to our database and help protect thousands of other job seekers from falling into the same traps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════  LINK CHECKER  ═══════════════ -->
+<section class="section link-checker-section">
+  <div class="container">
+    <div class="checker-card reveal">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center" class="checker-inner">
+        <div>
+          <span class="section-label"><i class="fa-solid fa-magnifying-glass"></i> LINK ANALYZER</span>
+          <h2 class="section-title" style="font-size:clamp(1.6rem,3vw,2.2rem)">Check If a Job Link<br><span class="text-gradient">Is Safe</span></h2>
+          <p class="section-subtitle" style="font-size:0.9rem;margin-top:12px">Paste any job application URL. Our analyzer scans for phishing patterns, suspicious domains, payment traps, and known scam indicators.</p>
+        </div>
+        <div>
+          <div class="checker-input-wrap">
+            <input
+              type="url"
+              id="link-input"
+              class="checker-input"
+              placeholder="https://fake-jobs-apply-now.xyz/form"
+              autocomplete="off"
+              spellcheck="false"
+            />
+            <button id="checker-btn" class="btn btn-primary">
+              <i class="fa-solid fa-shield-halved"></i> Analyze
+            </button>
+          </div>
+
+          <div class="checking-loader" id="checking-loader">
+            <div class="loader-dots"><span></span><span></span><span></span></div>
+            <span>Scanning URL for threats...</span>
+          </div>
+
+          <div class="checker-result" id="checker-result"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════  HOW IT WORKS  ═══════════════ -->
+<section class="section how-it-works">
+  <div class="container">
+    <div class="reveal" style="text-align:center">
+      <span class="section-label"><i class="fa-solid fa-route"></i> HOW IT WORKS</span>
+      <h2 class="section-title">Your 4-Step<br><span class="text-gradient">Safety Protocol</span></h2>
+    </div>
+
+    <div class="steps-container">
+      <div class="step-card reveal reveal-delay-1">
+        <div class="step-num">01</div>
+        <h4>Spot the Offer</h4>
+        <p>Received a job offer via email, WhatsApp, or social media? Don't act immediately — gather all available details first.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-2">
+        <div class="step-num">02</div>
+        <h4>Check Red Flags</h4>
+        <p>Run through our red flags checklist. Look for suspicious sender domains, money requests, vague job descriptions, and pressure tactics.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-3">
+        <div class="step-num">03</div>
+        <h4>Analyze the Link</h4>
+        <p>Use our URL checker to scan application links for known scam patterns, phishing domains, and unsafe redirects.</p>
+      </div>
+      <div class="step-card reveal reveal-delay-4">
+        <div class="step-num">04</div>
+        <h4>Verify & Report</h4>
+        <p>Independently verify the company via official channels. If it's a scam, report it to cybercrime.gov.in and our community.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════  CTA  ═══════════════ -->
+<section class="section">
+  <div class="cta-banner reveal">
+    <div style="position:relative;z-index:1">
+      <span class="section-label" style="margin:0 auto 20px;display:table"><i class="fa-solid fa-bell"></i> STAY INFORMED</span>
+      <h2>Stay Alert.<br><span class="text-gradient">Stay Safe.</span></h2>
+      <p>Join thousands of students and freshers who use ShieldWatch to navigate their job search safely. Knowledge is your best protection.</p>
+      <div class="cta-actions">
+        <a href="scams.html" class="btn btn-primary btn-lg">
+          <i class="fa-solid fa-shield"></i> Explore All Scams
+        </a>
+        <a href="survey.html" class="btn btn-outline btn-lg">
+          <i class="fa-solid fa-chart-bar"></i> Take Our Survey
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════  FOOTER  ═══════════════ -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-brand" style="margin-bottom:0">
+          <div class="brand-icon">🛡️</div>
+          <span class="brand-text">Shield<span class="brand-dot">Watch</span></span>
+        </a>
+        <p>Empowering job seekers with awareness, tools, and knowledge to stay safe from employment scams.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Platform</h5>
+        <a href="scams.html">Scam Types</a>
+        <a href="redflags.html">Red Flags</a>
+        <a href="examples.html">Real Examples</a>
+        <a href="survey.html">Survey</a>
+      </div>
+      <div class="footer-col">
+        <h5>Resources</h5>
+        <a href="redflags.html">Safety Guide</a>
+        <a href="examples.html">Fake vs Real</a>
+        <a href="survey.html">Report a Scam</a>
+        <a href="scams.html">Scam Database</a>
+      </div>
+      <div class="footer-col">
+        <h5>Report to</h5>
+        <a href="https://cybercrime.gov.in" target="_blank" rel="noopener">cybercrime.gov.in</a>
+        <a href="tel:1930">Cyber Helpline: 1930</a>
+        <a href="https://consumerhelpline.gov.in" target="_blank" rel="noopener">Consumer Helpline</a>
+        <a href="https://www.indiapost.gov.in" target="_blank" rel="noopener">India Post (Fraud)</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2024 ShieldWatch. Built for awareness. Not affiliated with any company.</p>
+      <div class="footer-bottom-links">
+        <a href="#">Privacy</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">About</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+// Fix hero visual inner grid responsiveness
+document.querySelectorAll('.checker-inner').forEach(el => {
+  if (window.innerWidth < 768) el.style.gridTemplateColumns = '1fr';
+});
+window.addEventListener('resize', () => {
+  document.querySelectorAll('.checker-inner').forEach(el => {
+    el.style.gridTemplateColumns = window.innerWidth < 768 ? '1fr' : '1fr 1fr';
+  });
+});
+</script>
+</body>
+</html>

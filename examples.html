@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Real Examples — ShieldWatch</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .example-section { margin-bottom: 80px; }
+    .example-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .example-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px; height: 32px;
+      border-radius: 50%;
+      font-size: 0.85rem;
+      font-weight: 800;
+      font-family: var(--font-display);
+      background: linear-gradient(135deg, rgba(239,68,68,0.2), rgba(245,158,11,0.1));
+      border: 1px solid rgba(239,68,68,0.3);
+      color: #ff8080;
+    }
+    .diff-tag {
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .diff-fake { background: rgba(239,68,68,0.15); color: var(--danger); }
+    .diff-real { background: rgba(16,185,129,0.15); color: var(--success); }
+  </style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="toast-container"></div>
+<button class="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="scams.html">Scam Types</a></li>
+    <li><a href="redflags.html">Red Flags</a></li>
+    <li><a href="examples.html">Examples</a></li>
+    <li><a href="survey.html">Survey</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle"><i class="fa-solid fa-sun"></i></button>
+    <a href="redflags.html" class="btn-nav-cta">Check Red Flags</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 Home</a><a href="scams.html">⚠️ Scam Types</a><a href="redflags.html">🚩 Red Flags</a><a href="examples.html">🔍 Examples</a><a href="survey.html">📊 Survey</a>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label"><i class="fa-solid fa-magnifying-glass"></i> REAL-WORLD ANALYSIS</span>
+    <h1 class="section-title">Fake vs <span class="text-gradient">Genuine</span></h1>
+    <p class="section-subtitle" style="margin:16px auto 0">Side-by-side forensic analysis of real scam communications vs legitimate job offers. Train your eye to spot the differences.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:20px">
+  <div class="container">
+
+    <!-- ─── EXAMPLE 1: Email Offers ─── -->
+    <div class="example-section">
+      <div class="example-label reveal">
+        <div class="example-number">01</div>
+        Email-Based Job Offer — "TCS Recruitment"
+      </div>
+
+      <div class="comparison-grid reveal">
+        <!-- FAKE -->
+        <div class="compare-col">
+          <div class="compare-header compare-fake">
+            <span>🚨</span> Scam / Fake Offer
+          </div>
+          <div class="compare-body">
+            <div class="email-mockup">
+              <div class="email-header-bar">
+                <div class="email-dot" style="background:#ff5f57"></div>
+                <div class="email-dot" style="background:#ffbd2e"></div>
+                <div class="email-dot" style="background:#28c940"></div>
+                <span style="margin-left:8px;font-size:0.75rem;color:var(--text-muted)">Email Client</span>
+              </div>
+              <div class="email-body">
+                <div class="email-field"><strong>From:</strong> <span style="color:var(--danger)">tcs-hr-recruitment@gmail.com <span class="highlight-red">⚠️ FAKE</span></span></div>
+                <div class="email-field"><strong>Subj:</strong> <span>YOU ARE SELECTED!! TCS Job Offer - ₹35,000/Month - IMMEDIATE JOINING</span></div>
+                <div class="email-field"><strong>To:</strong> <span>Undisclosed Recipients</span></div>
+                <div class="email-divider"></div>
+                <div class="email-text">
+                  Dear <span class="highlight-red">Candidate</span>,<br><br>
+                  Congratulations!! You have been <span class="highlight-red">SELECTED</span> for a Software Developer position at TCS (Tata Consultancy Services) with a salary of <span class="highlight-red">₹35,000/month + incentives</span>.<br><br>
+                  <span class="highlight-red">NO INTERVIEW REQUIRED.</span> This is a <span class="highlight-red">DIRECT HIRING</span> drive.<br><br>
+                  To <span class="highlight-red">CONFIRM YOUR SEAT</span>, please pay a <strong style="color:var(--danger)">refundable security deposit of ₹2,500</strong> via UPI: <span class="highlight-red">tcs.hiring@paytm</span><br><br>
+                  <span class="highlight-red">⚡ HURRY! Last 3 seats. Pay within 2 hours to confirm.</span><br><br>
+                  Regards,<br>HR Team, TCS Recruitment Cell
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px">
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600">🔍 Red Flags Found</p>
+              <div class="compare-item">
+                <span class="ci-icon">🚨</span>
+                <div class="ci-content"><label>Sender Email</label><span><span class="highlight-red">@gmail.com</span> — Real TCS uses @tcs.com exclusively</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">🚨</span>
+                <div class="ci-content"><label>No Interview</label><span>Legitimate companies never skip the interview process entirely</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">🚨</span>
+                <div class="ci-content"><label>Payment Request</label><span><span class="highlight-red">₹2,500 "security deposit"</span> demanded via UPI — classic scam</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">🚨</span>
+                <div class="ci-content"><label>Urgency Tactic</label><span><span class="highlight-red">"2 hours"</span> deadline to prevent verification</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">🚨</span>
+                <div class="ci-content"><label>Sent to</label><span>"Undisclosed Recipients" — mass spam email</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- REAL -->
+        <div class="compare-col">
+          <div class="compare-header compare-real">
+            <span>✅</span> Legitimate Offer
+          </div>
+          <div class="compare-body">
+            <div class="email-mockup">
+              <div class="email-header-bar">
+                <div class="email-dot" style="background:#ff5f57"></div>
+                <div class="email-dot" style="background:#ffbd2e"></div>
+                <div class="email-dot" style="background:#28c940"></div>
+                <span style="margin-left:8px;font-size:0.75rem;color:var(--text-muted)">Email Client</span>
+              </div>
+              <div class="email-body">
+                <div class="email-field"><strong>From:</strong> <span style="color:var(--success)">careers.noreply@tcs.com <span class="highlight-green">✓ VERIFIED</span></span></div>
+                <div class="email-field"><strong>Subj:</strong> <span>Your TCS NQT Application — Interview Scheduled</span></div>
+                <div class="email-field"><strong>To:</strong> <span style="color:var(--success)">rahul.sharma@email.com (your exact name)</span></div>
+                <div class="email-divider"></div>
+                <div class="email-text" style="color:var(--text-secondary)">
+                  Dear <span class="highlight-green">Rahul Sharma</span>,<br><br>
+                  Thank you for applying to TCS National Qualifier Test (NQT 2024). We are pleased to invite you for a <strong style="color:var(--success)">technical interview</strong> for the role of Systems Engineer.<br><br>
+                  <strong>Interview Details:</strong><br>
+                  Date: 15 January 2024, 10:00 AM IST<br>
+                  Mode: Virtual (Microsoft Teams)<br>
+                  Recruiter: <span class="highlight-green">Priya Nair</span> | priya.nair@tcs.com<br><br>
+                  <span style="color:var(--text-muted);font-size:0.8rem">No payment is required at any stage of TCS recruitment. If you are asked for money, report to: <strong>anti-scam@tcs.com</strong></span><br><br>
+                  Regards,<br>TCS Talent Acquisition Team<br><span style="color:var(--text-muted);font-size:0.75rem">CIN: L22210MH1995PLC084781</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top:20px">
+              <p style="font-size:0.8rem;color:var(--text-muted);margin-bottom:12px;text-transform:uppercase;letter-spacing:0.05em;font-weight:600">✅ Legitimacy Markers</p>
+              <div class="compare-item">
+                <span class="ci-icon">✅</span>
+                <div class="ci-content compare-real"><label>Official Domain</label><span><span class="highlight-green">@tcs.com</span> — matches company website exactly</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">✅</span>
+                <div class="ci-content compare-real"><label>Interview Required</label><span>Proper interview process with date, time, and platform details</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">✅</span>
+                <div class="ci-content compare-real"><label>No Payment</label><span>Explicitly states <span class="highlight-green">no payment required</span> and provides fraud reporting email</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">✅</span>
+                <div class="ci-content compare-real"><label>Personalized</label><span>Addressed to your <span class="highlight-green">exact full name</span> — not "Dear Candidate"</span></div>
+              </div>
+              <div class="compare-item">
+                <span class="ci-icon">✅</span>
+                <div class="ci-content compare-real"><label>CIN Number</label><span>Company registration number included — verifiable on mca.gov.in</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── EXAMPLE 2: WhatsApp Internship ─── -->
+    <div class="example-section">
+      <div class="example-label reveal">
+        <div class="example-number">02</div>
+        WhatsApp Internship Offer
+      </div>
+
+      <div class="comparison-grid reveal">
+        <div class="compare-col">
+          <div class="compare-header compare-fake"><span>🚨</span> Scam / Fake Internship</div>
+          <div class="compare-body">
+            <div style="background:rgba(0,0,0,0.2);border:1px solid var(--border);border-radius:var(--radius);padding:16px;font-size:0.82rem;margin-bottom:20px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <div style="width:36px;height:36px;background:linear-gradient(135deg,#25d366,#128c7e);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">💬</div>
+                <div><strong style="display:block">HR Consultant Anjali</strong><span style="color:var(--text-muted);font-size:0.75rem">+91 98765 XXXXX</span></div>
+              </div>
+              <div style="background:rgba(37,211,102,0.08);border-radius:12px 12px 12px 4px;padding:10px 14px;margin-bottom:8px;color:var(--text-secondary)">
+                <span class="highlight-red">Congratulations</span>! You're selected for a <span class="highlight-red">PAID INTERNSHIP</span> at XYZ Tech Pvt Ltd! 🎉<br>
+                Stipend: <span class="highlight-red">₹15,000/month</span> + Certificate<br>
+                <span class="highlight-red">Work from HOME!</span><br>
+                No experience needed! 😊
+              </div>
+              <div style="background:rgba(37,211,102,0.08);border-radius:12px 12px 12px 4px;padding:10px 14px;margin-bottom:8px;color:var(--text-secondary)">
+                To confirm your internship, please complete your registration by paying a <span class="highlight-red">one-time fee of ₹999</span> (refundable with first stipend).<br><br>
+                UPI: <span class="highlight-red">xyztechhiring@paytm</span><br><br>
+                <span class="highlight-red">⚡ Only 3 slots left! Register NOW!</span>
+              </div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Medium</label><span>WhatsApp from unknown number — no official communication</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Selection Process</label><span>You never applied — how were you "selected"?</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Fee Demand</label><span><span class="highlight-red">₹999</span> registration fee via UPI to unknown ID</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-col">
+          <div class="compare-header compare-real"><span>✅</span> Legitimate Internship</div>
+          <div class="compare-body">
+            <div style="background:rgba(0,0,0,0.2);border:1px solid rgba(16,185,129,0.15);border-radius:var(--radius);padding:16px;font-size:0.82rem;margin-bottom:20px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <div style="width:36px;height:36px;background:linear-gradient(135deg,#3b82f6,#06b6d4);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1rem">💼</div>
+                <div><strong style="display:block">Internshala Official</strong><span style="color:var(--text-muted);font-size:0.75rem">Sent via Internshala Platform</span></div>
+              </div>
+              <div style="color:var(--text-secondary);line-height:1.6">
+                Dear <span class="highlight-green">Priya</span>,<br><br>
+                You applied for the <strong style="color:var(--success)">Web Development Intern</strong> role at MNO Solutions on 10 Jan 2024.<br><br>
+                We have reviewed your application and would like to schedule a <span class="highlight-green">15-minute screening call</span>.<br><br>
+                <strong>Stipend:</strong> ₹5,000–8,000/month (performance-based)<br>
+                <strong>Duration:</strong> 3 months<br>
+                <strong>Contact:</strong> hr@mnosolutions.com<br><br>
+                <span style="color:var(--text-muted);font-size:0.8rem">MNO Solutions Pvt Ltd | CIN: U72900DL2019PTC355123<br>You applied via your Internshala profile.</span>
+              </div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Platform</label><span>Official internship platform with verified companies</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>You Applied First</label><span>References the specific application you submitted</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>No Fee</label><span>Screening call scheduled — <span class="highlight-green">zero payment</span> at any stage</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── EXAMPLE 3: Offer Letter Comparison ─── -->
+    <div class="example-section">
+      <div class="example-label reveal">
+        <div class="example-number">03</div>
+        Offer Letter Document Analysis
+      </div>
+
+      <div class="comparison-grid reveal">
+        <div class="compare-col">
+          <div class="compare-header compare-fake"><span>🚨</span> Fake Offer Letter Signs</div>
+          <div class="compare-body">
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Company Letterhead</label><span><span class="highlight-red">Wrong logo</span>, different font from official website, no registered address</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>CIN / TAN</label><span><span class="highlight-red">Missing or fake CIN number</span> — cannot be verified on MCA portal</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Salary Mentioned</label><span><span class="highlight-red">₹40,000–₹60,000</span> for fresher with zero experience — unrealistic</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Joining Condition</label><span><span class="highlight-red">"Pay ₹3,000 security deposit"</span> before joining date</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Grammar</label><span><span class="highlight-red">Spelling errors</span>, inconsistent formatting, wrong city names</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">🚨</span>
+              <div class="ci-content"><label>Signature</label><span>No name or designation of the signing authority — just "HR Team"</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="compare-col">
+          <div class="compare-header compare-real"><span>✅</span> Genuine Offer Letter Signs</div>
+          <div class="compare-body">
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Company Letterhead</label><span><span class="highlight-green">Official letterhead</span> matching website exactly, with GSTIN/CIN</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>CIN / Registration</label><span><span class="highlight-green">Valid CIN number</span> verifiable on mca.gov.in within seconds</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Salary</label><span>Market-realistic CTC with clear breakup (basic, HRA, PF, bonus)</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Joining Condition</label><span><span class="highlight-green">No payment required</span> — only original documents for BGC</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Professional Language</label><span>Proofread, consistent, professional language throughout</span></div>
+            </div>
+            <div class="compare-item">
+              <span class="ci-icon">✅</span>
+              <div class="ci-content compare-real"><label>Authorized Signature</label><span><span class="highlight-green">Named signatory</span> with designation, employee ID, and contact email</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="cta-banner reveal">
+    <div style="position:relative;z-index:1">
+      <h2>Something Looks Off?<br><span class="text-gradient">Verify It Now</span></h2>
+      <p>Use our URL checker or red flags guide to analyze any suspicious job offer.</p>
+      <div class="cta-actions">
+        <a href="index.html" class="btn btn-primary btn-lg">🔍 Check a Link</a>
+        <a href="redflags.html" class="btn btn-outline btn-lg">🚩 Red Flags Guide</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a><p>Empowering job seekers with awareness and tools to stay safe.</p></div>
+      <div class="footer-col"><h5>Platform</h5><a href="scams.html">Scam Types</a><a href="redflags.html">Red Flags</a><a href="examples.html">Real Examples</a><a href="survey.html">Survey</a></div>
+      <div class="footer-col"><h5>Resources</h5><a href="redflags.html">Safety Guide</a><a href="examples.html">Fake vs Real</a></div>
+      <div class="footer-col"><h5>Report to</h5><a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a><a href="tel:1930">Cyber Helpline: 1930</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 ShieldWatch. Built for awareness.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Survey — ShieldWatch</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    .survey-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .survey-stat {
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+    }
+    .survey-stat .ss-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      display: block;
+      line-height: 1;
+    }
+    .survey-stat .ss-label {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: block;
+      margin-top: 5px;
+    }
+    .why-survey-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 30px;
+    }
+    .why-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+    .why-icon { font-size: 1.3rem; flex-shrink: 0; margin-top: 2px; }
+    .why-content h4 {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+    .why-content p { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.55; }
+
+    .report-card {
+      background: var(--bg-glass);
+      backdrop-filter: blur(20px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      margin-bottom: 30px;
+    }
+    .report-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 12px 18px;
+      background: rgba(5,10,24,0.5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      font-size: 0.875rem;
+      transition: all var(--transition);
+      outline: none;
+    }
+    [data-theme="light"] .form-input,
+    [data-theme="light"] .form-select,
+    [data-theme="light"] .form-textarea {
+      background: rgba(255,255,255,0.8);
+    }
+    .form-input::placeholder, .form-textarea::placeholder { color: var(--text-muted); }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 0 3px rgba(6,182,212,0.1);
+    }
+    .form-select { appearance: none; cursor: pointer; }
+    .form-textarea { resize: vertical; min-height: 100px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .radio-group { display: flex; gap: 10px; flex-wrap: wrap; }
+    .radio-option {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 16px;
+      background: rgba(5,10,24,0.4);
+      border: 1px solid var(--border);
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      transition: all var(--transition);
+    }
+    [data-theme="light"] .radio-option { background: rgba(255,255,255,0.6); }
+    .radio-option:hover { border-color: var(--border-glow); color: var(--text-primary); }
+    .radio-option input[type="radio"] { display: none; }
+    .radio-option.selected {
+      background: var(--accent-neon-dim);
+      border-color: rgba(0,229,255,0.4);
+      color: var(--accent-cyan);
+    }
+    .submit-success {
+      display: none;
+      text-align: center;
+      padding: 40px;
+    }
+    .submit-success.show { display: block; animation: slide-up 0.4s ease; }
+    .success-icon {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 768px) {
+      .survey-stats { grid-template-columns: 1fr 1fr; }
+      .why-survey-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 480px) {
+      .survey-stats { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-orb bg-orb-1"></div>
+<div class="bg-orb bg-orb-2"></div>
+<div class="toast-container"></div>
+<button class="scroll-top"><i class="fa-solid fa-chevron-up"></i></button>
+
+<nav class="navbar">
+  <a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="scams.html">Scam Types</a></li>
+    <li><a href="redflags.html">Red Flags</a></li>
+    <li><a href="examples.html">Examples</a></li>
+    <li><a href="survey.html">Survey</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="theme-toggle"><i class="fa-solid fa-sun"></i></button>
+    <a href="redflags.html" class="btn-nav-cta">Check Red Flags</a>
+  </div>
+  <button class="hamburger"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav">
+  <a href="index.html">🏠 Home</a><a href="scams.html">⚠️ Scam Types</a><a href="redflags.html">🚩 Red Flags</a><a href="examples.html">🔍 Examples</a><a href="survey.html">📊 Survey</a>
+</div>
+
+<!-- Page Hero -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label"><i class="fa-solid fa-chart-bar"></i> COMMUNITY RESEARCH</span>
+    <h1 class="section-title">Help Us <span class="text-gradient">Understand</span></h1>
+    <p class="section-subtitle" style="margin:16px auto 0">Your experience matters. Share what you've faced to help us build better awareness tools and protect the next generation of job seekers.</p>
+  </div>
+</div>
+
+<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="survey-wrap">
+
+      <!-- Survey Stats -->
+      <div class="survey-stats reveal">
+        <div class="survey-stat">
+          <span class="ss-num" style="color:var(--accent-cyan)" data-target="3842" data-suffix="">0</span>
+          <span class="ss-label">Responses Collected</span>
+        </div>
+        <div class="survey-stat">
+          <span class="ss-num" style="color:var(--warning)" data-target="68" data-suffix="%">0</span>
+          <span class="ss-label">Faced a Scam Attempt</span>
+        </div>
+        <div class="survey-stat">
+          <span class="ss-num" style="color:var(--success)" data-target="94" data-suffix="%">0</span>
+          <span class="ss-label">Found This Helpful</span>
+        </div>
+      </div>
+
+      <!-- Why Participate -->
+      <div class="reveal" style="margin-bottom:40px">
+        <h2 class="section-title" style="font-size:1.5rem;margin-bottom:8px">Help Us Understand Scam Awareness</h2>
+        <p style="font-size:0.9rem;color:var(--text-secondary)">Anonymous • Takes 3 minutes • No sign-up required</p>
+        <div class="why-survey-grid">
+          <div class="why-card">
+            <span class="why-icon">🔬</span>
+            <div class="why-content">
+              <h4>Feed Our Research</h4>
+              <p>Your data helps us identify new scam patterns and update our database in real time.</p>
+            </div>
+          </div>
+          <div class="why-card">
+            <span class="why-icon">🛡️</span>
+            <div class="why-content">
+              <h4>Protect Others</h4>
+              <p>Every response helps train our URL checker and improves red flag detection accuracy.</p>
+            </div>
+          </div>
+          <div class="why-card">
+            <span class="why-icon">📢</span>
+            <div class="why-content">
+              <h4>Raise Awareness</h4>
+              <p>Aggregated data from surveys helps us create more impactful awareness campaigns.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ─── SURVEY FORM ─── -->
+      <div class="survey-card reveal">
+        <div class="survey-card-header">
+          <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px">
+            <div>
+              <h2 style="font-family:var(--font-display);font-size:1.3rem;font-weight:800;margin-bottom:4px">Scam Awareness Survey 2024</h2>
+              <p style="font-size:0.82rem;color:var(--text-secondary)">All responses are anonymous and used only for awareness research.</p>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 14px;background:var(--success-dim);border:1px solid rgba(16,185,129,0.3);border-radius:50px;font-size:0.75rem;font-weight:700;color:var(--success)">
+              <i class="fa-solid fa-lock" style="font-size:0.7rem"></i> Anonymous & Secure
+            </div>
+          </div>
+        </div>
+
+        <!-- Survey form body -->
+        <div class="survey-card-body" style="padding:36px">
+
+          <!-- Progress bar -->
+          <div style="margin-bottom:30px">
+            <div style="display:flex;justify-content:space-between;font-size:0.78rem;color:var(--text-muted);margin-bottom:8px">
+              <span>Survey Progress</span>
+              <span id="progress-label">0%</span>
+            </div>
+            <div style="height:5px;background:rgba(255,255,255,0.06);border-radius:5px;overflow:hidden">
+              <div id="progress-bar" style="height:100%;background:linear-gradient(90deg,var(--accent-cyan),var(--accent-blue));border-radius:5px;width:0%;transition:width 0.4s ease"></div>
+            </div>
+          </div>
+
+          <!-- Form -->
+          <div id="survey-form">
+
+            <!-- Section 1: Background -->
+            <div style="margin-bottom:28px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <span style="width:24px;height:24px;background:var(--accent-neon-dim);border:1px solid rgba(0,229,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:var(--accent-cyan)">1</span>
+                <h3 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700">Your Background</h3>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label>Current Status *</label>
+                  <select class="form-select survey-field" id="status">
+                    <option value="">Select your status</option>
+                    <option value="student">Student (UG/PG)</option>
+                    <option value="fresher">Recent Graduate / Fresher</option>
+                    <option value="experienced">Experienced Professional</option>
+                    <option value="jobseeker">Active Job Seeker</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label>Age Group</label>
+                  <select class="form-select survey-field" id="age">
+                    <option value="">Select age group</option>
+                    <option value="18-21">18–21 years</option>
+                    <option value="22-25">22–25 years</option>
+                    <option value="26-30">26–30 years</option>
+                    <option value="31+">31+ years</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Which platforms do you use for job search? (Select all that apply)</label>
+                <div class="radio-group" id="platforms">
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="linkedin">LinkedIn</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="naukri">Naukri</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="internshala">Internshala</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="indeed">Indeed</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="whatsapp">WhatsApp Groups</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="telegram">Telegram</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox" value="college">College Placement</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 2: Scam Experience -->
+            <div style="margin-bottom:28px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <span style="width:24px;height:24px;background:var(--danger-dim);border:1px solid rgba(239,68,68,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:var(--danger)">2</span>
+                <h3 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700">Scam Encounters</h3>
+              </div>
+
+              <div class="form-group">
+                <label>Have you personally encountered a fake job/internship scam? *</label>
+                <div class="radio-group" id="encountered">
+                  <label class="radio-option" onclick="selectRadio(this,'encountered')"><input type="radio" name="encountered" value="yes_fell">Yes — and I fell for it</label>
+                  <label class="radio-option" onclick="selectRadio(this,'encountered')"><input type="radio" name="encountered" value="yes_avoided">Yes — but I recognized and avoided it</label>
+                  <label class="radio-option" onclick="selectRadio(this,'encountered')"><input type="radio" name="encountered" value="no">No, not yet</label>
+                  <label class="radio-option" onclick="selectRadio(this,'encountered')"><input type="radio" name="encountered" value="unsure">I'm not sure / possibly</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>What type of scam was it? (Select all that apply)</label>
+                <div class="radio-group">
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Payment / Fee Demand</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Phishing Link</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Fake HR Impersonation</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Identity / KYC Theft</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Fake Internship Certificate</label>
+                  <label class="radio-option" onclick="toggleMulti(this)"><input type="checkbox">Task-Based Investment</label>
+                </div>
+              </div>
+
+              <div class="form-group" id="amount-group" style="display:none">
+                <label>Approximate amount lost (if any)</label>
+                <select class="form-select survey-field">
+                  <option value="">Prefer not to say</option>
+                  <option value="0">Nothing (recognized in time)</option>
+                  <option value="500">Up to ₹500</option>
+                  <option value="1000">₹500 – ₹1,000</option>
+                  <option value="5000">₹1,000 – ₹5,000</option>
+                  <option value="10000">₹5,000 – ₹10,000</option>
+                  <option value="10000+">More than ₹10,000</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Section 3: Awareness -->
+            <div style="margin-bottom:28px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <span style="width:24px;height:24px;background:var(--accent-neon-dim);border:1px solid rgba(0,229,255,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:var(--accent-cyan)">3</span>
+                <h3 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700">Awareness & Knowledge</h3>
+              </div>
+
+              <div class="form-group">
+                <label>Before today, how aware were you of job scam tactics?</label>
+                <div class="radio-group" id="awareness">
+                  <label class="radio-option" onclick="selectRadio(this,'awareness')"><input type="radio" name="awareness" value="very">Very Aware</label>
+                  <label class="radio-option" onclick="selectRadio(this,'awareness')"><input type="radio" name="awareness" value="somewhat">Somewhat Aware</label>
+                  <label class="radio-option" onclick="selectRadio(this,'awareness')"><input type="radio" name="awareness" value="little">Barely Aware</label>
+                  <label class="radio-option" onclick="selectRadio(this,'awareness')"><input type="radio" name="awareness" value="none">Not Aware at All</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>How did you find out about ShieldWatch?</label>
+                <div class="radio-group" id="source">
+                  <label class="radio-option" onclick="selectRadio(this,'source')"><input type="radio" name="source" value="college">College / Institute</label>
+                  <label class="radio-option" onclick="selectRadio(this,'source')"><input type="radio" name="source" value="social">Social Media</label>
+                  <label class="radio-option" onclick="selectRadio(this,'source')"><input type="radio" name="source" value="friend">Friend / Peer</label>
+                  <label class="radio-option" onclick="selectRadio(this,'source')"><input type="radio" name="source" value="search">Search Engine</label>
+                  <label class="radio-option" onclick="selectRadio(this,'source')"><input type="radio" name="source" value="other">Other</label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>Rate your confidence in identifying scams after using ShieldWatch (1–5)</label>
+                <div class="radio-group" id="rating">
+                  <label class="radio-option" onclick="selectRadio(this,'rating')"><input type="radio" name="rating" value="1">⭐ 1</label>
+                  <label class="radio-option" onclick="selectRadio(this,'rating')"><input type="radio" name="rating" value="2">⭐ 2</label>
+                  <label class="radio-option" onclick="selectRadio(this,'rating')"><input type="radio" name="rating" value="3">⭐ 3</label>
+                  <label class="radio-option" onclick="selectRadio(this,'rating')"><input type="radio" name="rating" value="4">⭐ 4</label>
+                  <label class="radio-option" onclick="selectRadio(this,'rating')"><input type="radio" name="rating" value="5">⭐ 5</label>
+                </div>
+              </div>
+            </div>
+
+            <!-- Section 4: Open Feedback -->
+            <div style="margin-bottom:32px">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:18px;padding-bottom:12px;border-bottom:1px solid var(--border)">
+                <span style="width:24px;height:24px;background:rgba(168,85,247,0.1);border:1px solid rgba(168,85,247,0.3);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;color:#a855f7">4</span>
+                <h3 style="font-family:var(--font-display);font-size:0.95rem;font-weight:700">Your Experience (Optional)</h3>
+              </div>
+
+              <div class="form-group">
+                <label>Briefly describe a scam attempt you faced or any tips for others</label>
+                <textarea class="form-textarea survey-field" id="experience" placeholder="E.g. I received a WhatsApp message from +91 98xxx offering ₹25,000/month WFH job but they asked for ₹1,500 registration fee..."></textarea>
+              </div>
+
+              <div class="form-group">
+                <label>What additional features would you like on ShieldWatch?</label>
+                <textarea class="form-textarea survey-field" id="suggestions" placeholder="E.g. A list of known scam phone numbers, employer verification tool, scam news updates..." style="min-height:80px"></textarea>
+              </div>
+            </div>
+
+            <button class="btn btn-primary btn-lg" style="width:100%;justify-content:center" onclick="submitSurvey()">
+              <i class="fa-solid fa-paper-plane"></i> Submit Survey Response
+            </button>
+            <p style="text-align:center;font-size:0.78rem;color:var(--text-muted);margin-top:12px">
+              <i class="fa-solid fa-shield-halved" style="color:var(--accent-cyan)"></i>
+              No personal data collected. Responses are fully anonymous.
+            </p>
+          </div>
+
+          <!-- Success Message -->
+          <div class="submit-success" id="submit-success">
+            <span class="success-icon">🎉</span>
+            <h2 style="font-family:var(--font-display);font-size:1.6rem;font-weight:800;margin-bottom:10px">Thank You!</h2>
+            <p style="color:var(--text-secondary);max-width:420px;margin:0 auto 28px;line-height:1.7">
+              Your response has been recorded. Together, we're building a safer job market for every student and fresher in India.
+            </p>
+            <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+              <a href="scams.html" class="btn btn-primary">Explore Scam Types</a>
+              <a href="index.html" class="btn btn-outline">Back to Home</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Google Form Embed Option -->
+      <div class="report-card reveal" style="margin-top:30px">
+        <h3><i class="fa-brands fa-google" style="color:var(--accent-cyan)"></i> Also on Google Forms</h3>
+        <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.7">
+          Prefer Google Forms? We've also published the survey there. Your responses help improve this platform and contribute to cybersecurity awareness research across Indian universities.
+        </p>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScHBlFRvTvNkJ9W0nU-mNVfw83CQhtyNigShNmLsa13vFpnXA/viewform?usp=publish-editor" 
+           target="_blank" 
+           rel="noopener"
+           class="btn btn-outline"
+           style="display:inline-flex">
+          <i class="fa-brands fa-google"></i> Open Google Form Survey
+        </a>
+        <p style="font-size:0.75rem;color:var(--text-muted);margin-top:12px">
+          <i class="fa-solid fa-circle-info"></i> Replace the above link with your actual Google Form URL.
+        </p>
+      </div>
+
+      <!-- Report a Specific Scam -->
+      <div class="report-card reveal">
+        <h3><i class="fa-solid fa-circle-exclamation" style="color:var(--danger)"></i> Report a Specific Scam</h3>
+        <p style="font-size:0.875rem;color:var(--text-secondary);margin-bottom:20px;line-height:1.7">
+          Encountered a specific fake company, phone number, or website? Report it to official authorities so it can be investigated and taken down.
+        </p>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px">
+          <a href="https://cybercrime.gov.in" target="_blank" rel="noopener" class="btn btn-danger" style="justify-content:center">
+            <i class="fa-solid fa-shield-halved"></i> cybercrime.gov.in
+          </a>
+          <a href="tel:1930" class="btn btn-outline" style="justify-content:center">
+            <i class="fa-solid fa-phone"></i> Call 1930 (Cyber Helpline)
+          </a>
+          <a href="https://consumerhelpline.gov.in" target="_blank" rel="noopener" class="btn btn-outline" style="justify-content:center">
+            <i class="fa-solid fa-gavel"></i> Consumer Helpline
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><a href="index.html" class="nav-brand"><div class="brand-icon">🛡️</div><span class="brand-text">Shield<span class="brand-dot">Watch</span></span></a><p>Empowering job seekers with awareness and tools to stay safe from employment scams.</p></div>
+      <div class="footer-col"><h5>Platform</h5><a href="scams.html">Scam Types</a><a href="redflags.html">Red Flags</a><a href="examples.html">Real Examples</a><a href="survey.html">Survey</a></div>
+      <div class="footer-col"><h5>Resources</h5><a href="redflags.html">Safety Guide</a><a href="examples.html">Fake vs Real</a></div>
+      <div class="footer-col"><h5>Report to</h5><a href="https://cybercrime.gov.in" target="_blank">cybercrime.gov.in</a><a href="tel:1930">Cyber Helpline: 1930</a></div>
+    </div>
+    <div class="footer-bottom"><p>© 2024 ShieldWatch. Built for awareness.</p><div class="footer-bottom-links"><a href="#">Privacy</a><a href="#">Disclaimer</a></div></div>
+  </div>
+</footer>
+
+<script src="js/script.js"></script>
+<script>
+function selectRadio(el, groupId) {
+  document.querySelectorAll(`#${groupId} .radio-option`).forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  // Show amount group if "fell for it"
+  if (groupId === 'encountered' && el.querySelector('input').value === 'yes_fell') {
+    document.getElementById('amount-group').style.display = 'block';
+  } else if (groupId === 'encountered') {
+    document.getElementById('amount-group').style.display = 'none';
+  }
+  updateProgress();
+}
+
+function toggleMulti(el) {
+  el.classList.toggle('selected');
+  updateProgress();
+}
+
+function updateProgress() {
+  const total = 5; // key fields
+  let filled = 0;
+  if (document.getElementById('status').value) filled++;
+  if (document.querySelector('#encountered .selected')) filled++;
+  if (document.querySelector('#awareness .selected')) filled++;
+  if (document.querySelector('#source .selected')) filled++;
+  if (document.querySelector('#rating .selected')) filled++;
+  const pct = Math.round((filled / total) * 100);
+  document.getElementById('progress-bar').style.width = pct + '%';
+  document.getElementById('progress-label').textContent = pct + '%';
+}
+
+document.querySelectorAll('.survey-field').forEach(f => {
+  f.addEventListener('change', updateProgress);
+  f.addEventListener('input', updateProgress);
+});
+
+function submitSurvey() {
+  const status = document.getElementById('status').value;
+  if (!status) {
+    showToast('Required Field', 'Please select your current status', 'warning');
+    document.getElementById('status').focus();
+    return;
+  }
+  if (!document.querySelector('#encountered .selected')) {
+    showToast('Required Field', 'Please answer the scam encounter question', 'warning');
+    return;
+  }
+
+  // Animate submission
+  const btn = event.target;
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Submitting...';
+  btn.disabled = true;
+
+  setTimeout(() => {
+    document.getElementById('survey-form').style.display = 'none';
+    document.getElementById('submit-success').classList.add('show');
+    showToast('Submitted!', 'Thank you for helping make job search safer', 'success');
+  }, 1800);
+}
+</script>
+</body>
+</html>
